@@ -22,9 +22,8 @@ for fight in range(1, lost_battles + 1):
         if fight % 2 == 0:
             total_money += shield_price
             broken_shield += 1
-
-    if broken_shield % 2 == 0 and broken_shield != 0:
-        total_money += armor_price
-        broken_armor += 1
+            if broken_shield % 2 == 0 and broken_shield > 0:
+                total_money += armor_price
+                broken_armor += 1
 
 print(f"Gladiator expenses: {total_money :.2f} aureus")
