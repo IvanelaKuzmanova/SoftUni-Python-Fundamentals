@@ -5,8 +5,7 @@ opposite_list = []
 
 for number in my_list:
 
-    number = float(number)
-    new_number = int(number) * -1
+    new_number = -int(number)
 
     opposite_list.append(new_number)
 
