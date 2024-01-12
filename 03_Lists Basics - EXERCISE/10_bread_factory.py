@@ -11,13 +11,16 @@ for command in events_as_string:
 #for command in events_as_string:
     # command_type, value = command.split("-")                  Way of direct splitting of two values
 
-    if command_as_list[0] == "rest":        #if in the current command on index 0 stays rest
+    if command_as_list[0] == "rest":        #if in the current command on index 0 stays res
+        current_energy = energy
         energy += int(command_as_list[1])
+
         if energy > 100:
             energy = 100
-            print(f"You gained 0 energy.")
-        else:
-            print(f"You gained {command_as_list[1]} energy.")
+
+        energy_gained = energy - current_energy     #because we can add part of the points for energy!!!
+
+        print(f"You gained {energy_gained} energy.")
         print(f"Current energy: {energy}.")
 
     elif command_as_list[0] == "order":
