@@ -22,8 +22,18 @@ while not command == "No Money":
 
     command = input()
 
-for element in gifts_list:          #checking if any of the elements are "None" and removing them
-    if element == "None":
-        gifts_list.remove(element)
+while "None" in gifts_list:
+    gifts_list.remove("None")
 
 print(*gifts_list, sep=" ")         #printing with the described formatting and separation
+
+## for elements in gifts_list:
+#     if not elements == "None":
+#         print(f'{elements}', end=' ') => working way of printing
+
+# for element in gifts_list:          #checking if any of the elements are "None" and removing them
+#     if element == "None":
+#         gifts_list.remove(element)        #not working, since it does not remove all elements! only one. Remove function specifics
+#
+# print(*gifts_list, sep=" ")
+
