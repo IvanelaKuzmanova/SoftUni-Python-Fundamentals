@@ -6,8 +6,6 @@ cells_put_out = []
 total_effort = 0
 total_fire = 0
 
-# fire_in_condition = False
-
 for element in commands_as_list:
     command_separated = element.split(" = ")
     fire_type = command_separated[0]
