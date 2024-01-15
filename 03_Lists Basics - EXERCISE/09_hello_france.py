@@ -3,36 +3,42 @@ ticket_price = 150
 collection = input().split("|")
 budget = float(input())
 
-sold_items = []
-increased_prices = []
+items_acc_to_condition = []
+bought_items = []
 collected_money = 0
+items_list = []
+spent_money = 0
 
-for item in range(len(collection)):
-    items_list = collection[item].split("->")
-    item_type = items_list[0]
-    item_price = float(items_list[1])
+for item in collection:
+    items_list.append(item.split("->"))
 
-    if item_price <= budget:
-        if (item_type == "Clothes" and item_price <= 50) or \
-            (item_type == "Shoes" and item_price <= 35) or \
-            (item_type == "Accessories" and item_price <= 20.50):
-            budget -= item_price
-            sold_items.append(item_price)
+for item in items_list:
+    if item[0] == "Clothes" and float(item[1]) <= 50:
+        items_acc_to_condition.append(float(item[1]))
+    elif item[0] == "Shoes" and float(item[1]) <= 35:
+        items_acc_to_condition.append(float(item[1]))
+    elif item[0] == "Accessories" and float(item[1]) <= 20.50:
+        items_acc_to_condition.append(float(item[1]))
 
-for price in range(len(sold_items)):
-    current_price = float(sold_items[price])
-    current_price *= (1 + 0.40)
-    current_price = round(current_price, 2)
-    increased_prices.append(current_price)
-    # sold_items[price] = current_price       #replacing element on current index with higher price
-    # sold_items[price] = "%.2f" % sold_items[price]         #formatting element to 2nd decimal place
-profit = sum(increased_prices) - sum(sold_items)
+for price in items_acc_to_condition:
+    if price <= budget:
+        budget -= price
+        spent_money += price
+        bought_items.append(str(price))
 
-print(*increased_prices, sep=" ")
+for price in bought_items:
+    increased_price = float(price) * 1.40
+    print(f"{increased_price :.2f}", end = " ")
+    collected_money += increased_price
+
+profit = collected_money - spent_money
+print()
 print(f"Profit: {profit :.2f}")
 
-if budget + sum(increased_prices) >= ticket_price:
+if budget + collected_money >= ticket_price:
     print(f"Hello, France!")
 else:
     print(f"Not enough money.")
 
+ # sold_items[price] = current_price       #replacing element on current index with higher price
+    # sold_items[price] = "%.2f" % sold_items[price]         #formatting element to 2nd decimal place
