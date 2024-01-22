@@ -1,16 +1,4 @@
 numbers_list = input().split()
-<<<<<<< HEAD
-removed = int(input())
-
-deleted_value = 0
-
-for i in range(removed):
-
-    deleted_value = min(numbers_list)
-    numbers_list.remove(deleted_value)
-
-print(numbers_list)
-=======
 numbers_to_remove = int(input())
 
 smallest_num = 0
@@ -25,7 +13,3 @@ for n in range(numbers_to_remove):      # iterations equal to the numbers to rem
     list_as_int.remove(smallest_num)
 
 print(*list_as_int, sep=", ")           # * before the list defines printing without the brackets, sep defines the way of separating elements
-
-
-
->>>>>>> origin/main
