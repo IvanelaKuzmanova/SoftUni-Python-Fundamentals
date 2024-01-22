@@ -1,22 +1,18 @@
-def total_price(prodyct_type, quantity):
+def total_price(product_type, quantity):
 
-    price = 0
-
-    if prodyct_type == "coffee":
-        price = 1.50
-    elif prodyct_type == "water":
-        price = 1.00
-    elif prodyct_type == "coke":
-        price = 1.40
-    elif prodyct_type == "snacks":
-        price = 2.00
-
-    return price * quantity
+    if product_type == "coffee":
+        return f"{1.50 * quantity:.2f}"
+    elif product_type == "water":
+        return f"{1.00 * quantity:.2f}"
+    elif product_type == "coke":
+        return f"{1.40 * quantity:.2f}"
+    elif product_type == "snacks":
+        return f"{2.00 * quantity:.2f}"
 
 
 product_type = input()
 quantity = int(input())
 
-result = float(total_price(product_type, quantity))
+result = total_price(product_type, quantity)
 
-print(f"{result :.2f}")
+print(result)
