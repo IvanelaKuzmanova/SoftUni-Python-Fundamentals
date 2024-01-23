@@ -1,33 +1,30 @@
-current_object = input()
-valid = True
-digits_counter = 0
-# def password_check(current_object):
+def password_verification(current_object):
 
-if len(current_object) < 6:
-    valid = False
-    print(f"Password must be between 6 and 10 characters")
+    digits_counter = 0
+    valid = True
 
-if 6 <= len(current_object) <= 10:
+    if not 6 <= len(current_object) <= 10:
+        valid = False
+        print(f"Password must be between 6 and 10 characters")
 
     for symbol in range(len(current_object)):
-
         current_symbol = current_object[symbol]
 
         if current_symbol.isdigit():
             digits_counter += 1
             continue
-        elif current_object.isalpha():
-            continue
-        else:
+        if not current_symbol.isalpha() and not current_symbol.isdigit():
             valid = False
             print(f"Password must consist only of letters and digits")
             break
 
     if digits_counter < 2:
+        valid = False
         print(f"Password must have at least 2 digits")
 
-if valid:
-    print(f"Password is valid")
+    if valid:
+        print(f"Password is valid")
 
+password = input()
 
-
+check_result = password_verification(password)
