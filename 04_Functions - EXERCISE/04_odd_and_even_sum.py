@@ -11,6 +11,7 @@ def even_odd_check(number):
 
     return f"Odd sum = {sum(odd_list)}, Even sum = {sum(even_list)}"
 
+
 number = input()
 
 result = even_odd_check(number)

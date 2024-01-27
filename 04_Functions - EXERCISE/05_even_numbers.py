@@ -6,3 +6,5 @@ numbers_list = [int(number) for number in input().split()]      #using list comp
 result = filter(even, numbers_list)         #using filter build in function - filter all even numbers in the given list
 
 print(list(result))       #using list function to print the new list with filtered elements (otherwise nothing is printed)
+
+#numbers_list = [int(number) for number in input().split() if int(number) % 2 ==0]          #list comprehension with condition - it will add only even numbers
