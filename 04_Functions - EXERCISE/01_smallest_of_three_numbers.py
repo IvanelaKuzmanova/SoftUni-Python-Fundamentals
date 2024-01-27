@@ -1,6 +1,7 @@
 def smallest_number(a, b, c) -> int:
     return min(a, b, c)
 
+
 num1 = int(input())
 num2 = int(input())
 num3 = int(input())
