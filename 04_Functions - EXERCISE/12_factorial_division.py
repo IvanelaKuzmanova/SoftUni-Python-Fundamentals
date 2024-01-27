@@ -1,6 +1,6 @@
 import math
 
-def factorials_division(num1 = int, num2 = int) -> int:
+def factorials_division(num1:int, num2:int) -> int:
     factorial_1 = math.factorial(num1)
     factorial_2 = math.factorial(num2)
     return factorial_1 / factorial_2
