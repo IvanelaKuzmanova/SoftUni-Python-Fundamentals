@@ -1,4 +1,4 @@
-def smallest_number(a, b, c):
+def smallest_number(a, b, c) -> int:
     return min(a, b, c)
 
 num1 = int(input())
