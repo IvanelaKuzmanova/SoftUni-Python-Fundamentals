@@ -1,7 +1,7 @@
 
 def average_happiness(happiness):
 
-    average_happiness = max(happiness) / 2
+    average_happiness = sum(happiness) / len(happiness)
     happy_count = 0
 
     for person in happiness:
