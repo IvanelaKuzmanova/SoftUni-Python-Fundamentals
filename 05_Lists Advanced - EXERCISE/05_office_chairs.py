@@ -4,14 +4,12 @@ total_chairs = 0
 
 for room in range(1, number_of_rooms + 1):
 
-    current_information = [x for x in input()]
+    current_information = input().split()
 
-    for element in current_information:
-        if element.isdigit():
-            current_people = int(element)
-            total_visitors += current_people
+    current_people = int(current_information[1])
+    total_visitors += current_people
 
-    current_chairs = current_information.count('X')
+    current_chairs = len(current_information[0])
     total_chairs += current_chairs
 
     if current_chairs < current_people:
