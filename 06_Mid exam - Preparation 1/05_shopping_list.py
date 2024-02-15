@@ -10,26 +10,24 @@ def shopping_list_definition(my_list:list) -> str:
         else:
             splitted_command = command.split()
             type = splitted_command[0]
+            product = splitted_command[-1]
 
             if type == "Urgent":
-                product = splitted_command[1]
                 my_list.count(product)
                 if product == 0:
                     my_list.insert(0, product)
 
             elif type == "Unnecessary":
-                product = splitted_command[1]
                 my_list = [item for item in my_list if item != product]         #filters only different products
 
             elif type == "Correct":
                 old_product = splitted_command[1]
-                product = splitted_command[2]
                 for index in range(len(my_list)):
-                    if my_list[index] == old_product:
-                        my_list[index] = product
+                    current_product = my_list[index]
+                    if current_product == old_product:
+                        current_product = product
 
             elif type == "Rearrange":
-                product = splitted_command[1]
                 for index in range(len(my_list)):
                     if my_list[index] == product:
                         removed_element = my_list.pop(index)
