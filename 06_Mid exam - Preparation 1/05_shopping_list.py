@@ -13,8 +13,7 @@ def shopping_list_definition(my_list:list) -> str:
             product = splitted_command[-1]
 
             if type == "Urgent":
-                my_list.count(product)
-                if product == 0:
+                if not product in my_list:
                     my_list.insert(0, product)
 
             elif type == "Unnecessary":
@@ -25,7 +24,7 @@ def shopping_list_definition(my_list:list) -> str:
                 for index in range(len(my_list)):
                     current_product = my_list[index]
                     if current_product == old_product:
-                        current_product = product
+                        my_list = [product if item == old_product else item for item in my_list]        #replace with product if anything equal do the old item is found in the list
 
             elif type == "Rearrange":
                 for index in range(len(my_list)):
@@ -33,7 +32,7 @@ def shopping_list_definition(my_list:list) -> str:
                         removed_element = my_list.pop(index)
                         my_list.append(removed_element)
 
-        return ", ".join(my_list)
+    return ", ".join(my_list)
 
 
 shopping_list = input().split("!")
