@@ -20,8 +20,8 @@ while True:
 
     sender, receiver, content = command         #way of defining variables on one line
 
-    email = Email(sender, receiver, content)
-    emails_list.append(email)
+    email = Email(sender, receiver, content)        #creating new object with each iteration
+    emails_list.append(email)       #adding the new object to the list
 
 send_emails = [int(x) for x in input().split(", ")]
 
