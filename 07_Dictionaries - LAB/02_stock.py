@@ -10,7 +10,7 @@ products_to_search = input().split()
 
 for product in products_to_search:
     if product in products_dict:
-        print(f"We have {products_dict[product]} of {product} left")
+        print(f"We have {products_dict[product]} of {product} left")        #if the string is found in dictionary, we use it to take first the key, then the value
     else:
         print(f"Sorry, we don't have {product}")
 
