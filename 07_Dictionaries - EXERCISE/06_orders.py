@@ -15,8 +15,8 @@ while True:
     if name not in products.keys():
         products[name] = current_info
 
-    elif name in products.keys():
-        products[name]["price"] = current_price
-        products[name]["quantity"] += current_quantity
+    products[name]["price"] = current_price
+    products[name]["quantity"] += current_quantity
 
-print(products)
+for product, value in products.items():
+    print(f"{product} -> {value['price'] * value['quantity'] :.2f}")
