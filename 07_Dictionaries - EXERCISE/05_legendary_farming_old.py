@@ -1,8 +1,8 @@
-key_materials = {}
+key_materials = {"shards": 0, "fragments": 0, "motes": 0}
 junk = {}
 
 not_won = True
-
+#------------------------------------------------------------------
 while not_won:
 
     command = input().split()
@@ -41,6 +41,8 @@ for key, value in key_materials.items():
             print(f"Valanyr obtained!")
 
         key_materials[key] -= 250
+
+#--------------------------------------------------------------------------------
 
 for key, value in key_materials.items():
     print(f"{key}: {value}")
