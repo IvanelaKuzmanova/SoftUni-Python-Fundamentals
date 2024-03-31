@@ -28,10 +28,11 @@ while True:
             users_dict[sender][0] += 1
             users_dict[receiver][1] += 1
 
-            if users_dict[sender][0] >= 10:
+            if (users_dict[sender][0] + users_dict[sender][1]) >= max_messages_count:
                 print(f"{sender} reached the capacity!")
                 del users_dict[sender]
-            if users_dict[receiver][1] >= 10:
+
+            if (users_dict[receiver][1] + users_dict[receiver][0]) >= max_messages_count:
                 print(f"{receiver} reached the capacity!")
                 del users_dict[receiver]
 #---------------------------------------------------------------
