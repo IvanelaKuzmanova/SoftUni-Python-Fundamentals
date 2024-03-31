@@ -11,18 +11,18 @@ while text[0] != "Statistics":
         sent = int(text[2])
         received = int(text[3])
         if username not in messages_dict.keys():
-            messages_dict[username] = [sent, received]
+            messages_dict[username] = {"sent": sent, "received": received}
 
     elif command == "Message":
         sender = text[1]
         receiver = text[2]
         if sender in messages_dict.keys() and receiver in messages_dict.keys():
-            messages_dict[sender][0] += 1
-            messages_dict[receiver][1] += 1
-            if (messages_dict[sender][0] + messages_dict[sender][1]) >= capacity:
+            messages_dict[sender]["sent"] += 1
+            messages_dict[receiver]["received"] += 1
+            if (messages_dict[sender]["sent"] + messages_dict[sender]["received"]) >= capacity:
                 print(f"{sender} reached the capacity!")
                 del messages_dict[sender]
-            if (messages_dict[receiver][1] + messages_dict[receiver][0]) >= capacity:
+            if (messages_dict[receiver]["received"] + messages_dict[receiver]["sent"]) >= capacity:
                 print(f"{receiver} reached the capacity!")
                 del messages_dict[receiver]
 
@@ -38,9 +38,8 @@ while text[0] != "Statistics":
 print(f"Users count: {len(messages_dict)}")
 
 for user, messages in messages_dict.items():
-    total_messages = 0
-    for el in messages:
-        total_messages += int(el)
+    for value in messages.values():
+        total_messages = sum(messages.values())
     print(f"{user} - {total_messages}")
 
 
